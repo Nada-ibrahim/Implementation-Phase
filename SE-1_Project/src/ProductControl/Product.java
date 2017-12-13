@@ -39,8 +39,8 @@ public class Product {
 		return null;
 	}
 
-	public void getProductName(String name) {
-
+	public String getName() {
+		return name;
 	}
 
 }

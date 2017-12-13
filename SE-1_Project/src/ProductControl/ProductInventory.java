@@ -1,5 +1,8 @@
 package ProductControl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductInventory {
 
 
@@ -10,6 +13,8 @@ public class ProductInventory {
 	private int soldItems;
 
 	private Store store;
+
+	private static List<ProductInventory> allProductsInventory = new ArrayList<>();
 
 	ProductInventory(String ProductName, String StoreName, int Price) {
 
@@ -35,7 +40,7 @@ public class ProductInventory {
 		return null;
 	}
 
-	public int GetSoldItems() {
+	public int getSoldItems() {
 		return 0;
 	}
 
@@ -43,8 +48,18 @@ public class ProductInventory {
 
 	}
 
-	public ProductInventory[] getStoresProducts(Store store) {
-		return null;
+	static public ProductInventory[] getStoresProducts(Store store) {
+		List<ProductInventory> storeProducts = new ArrayList<>();
+		for (ProductInventory anAllProductsInventory : allProductsInventory) {
+			if (anAllProductsInventory.getStore() == store) {
+				storeProducts.add(anAllProductsInventory);
+			}
+		}
+		ProductInventory[] productsArr = new ProductInventory[allProductsInventory.size()];
+		return storeProducts.toArray(productsArr);
 	}
 
+	public String getName() {
+		return product.getName();
+	}
 }

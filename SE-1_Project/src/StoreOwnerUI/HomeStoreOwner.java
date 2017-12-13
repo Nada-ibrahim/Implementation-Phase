@@ -5,10 +5,8 @@ import GeneralUI.StoresForm;
 import PaymentControl.User;
 
 public class HomeStoreOwner extends Form {
-	StoresForm myStores;
 	HomeStoreOwner(User current){
-		currentUser = current;
-		StoresForm myStores = new StoresForm(current);
+		super(current);
 		initializeForm();
 	}
 

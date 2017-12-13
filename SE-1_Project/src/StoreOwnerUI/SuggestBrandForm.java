@@ -8,7 +8,7 @@ public class SuggestBrandForm extends Form {
 
 	}
 
-	public void submitBrand(string brandName) {
+	public void submitBrand(String brandName) {
 
 	}
 

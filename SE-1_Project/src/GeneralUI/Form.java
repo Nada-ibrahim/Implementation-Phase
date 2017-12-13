@@ -8,6 +8,9 @@ abstract public class Form {
 	protected User currentUser;
 
 	private Collection<User> user;
+	public Form(User current){
+	    currentUser = current;
+    }
 
 	public void viewSuccessMessage() {
 

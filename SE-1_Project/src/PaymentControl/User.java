@@ -35,7 +35,10 @@ public class User {
 	}
 
 	public Store[] getOwnerStores() {
-		return null;
+		return stores;
 	}
 
+	public String getType() {
+		return type;
+	}
 }

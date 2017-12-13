@@ -9,7 +9,7 @@ public class SuggestProductForm extends Form {
 
 	}
 
-	public void submitProduct(string name, string category, Brand brand, string type) {
+	public void submitProduct(String name, String category, Brand brand, String type) {
 
 	}
 
