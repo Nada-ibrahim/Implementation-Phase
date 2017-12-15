@@ -1,6 +1,13 @@
 package GeneralUI;
 
+import PaymentControl.User;
+
 public class Home extends Form {
+	public Home(User currentUser)
+	{
+		super(currentUser);
+
+	}
 
 	public void signin() {
 
@@ -12,5 +19,8 @@ public class Home extends Form {
 	public void initialize(){
 
     }
+    public void searchStoreProducts(){
+
+	}
 
 }

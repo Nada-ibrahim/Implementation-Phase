@@ -26,6 +26,7 @@ public class Store {
 		return null;
 	}
 
+
 	public void removeStore() {
 
 	}

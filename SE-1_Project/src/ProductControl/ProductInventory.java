@@ -1,5 +1,8 @@
 package ProductControl;
 
+import GeneralUI.exploreProductInStoreForm;
+import PaymentControl.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +19,10 @@ public class ProductInventory {
 
 	private static List<ProductInventory> allProductsInventory = new ArrayList<>();
 
+	public ProductInventory(){
+		return;
+
+	}
 	ProductInventory(String ProductName, String StoreName, int Price) {
 
 	}
@@ -56,6 +63,7 @@ public class ProductInventory {
 			}
 		}
 		ProductInventory[] productsArr = new ProductInventory[allProductsInventory.size()];
+
 		return storeProducts.toArray(productsArr);
 	}
 
