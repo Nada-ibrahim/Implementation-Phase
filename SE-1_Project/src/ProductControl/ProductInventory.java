@@ -36,7 +36,8 @@ public class ProductInventory {
 	}
 
 	public int getPrice() {
-		return 0;
+
+		return price;
 	}
 
 	public void incrementSoldItems() {

@@ -1,6 +1,7 @@
 package GeneralUI;
 
 import PaymentControl.User;
+import ProductControl.Store;
 
 public class Home extends Form {
 	public Home(User currentUser)
@@ -19,7 +20,9 @@ public class Home extends Form {
 	public void initialize(){
 
     }
-    public void searchStoreProducts(){
+    public void searchStoreProducts(User user,Store store){
+		exploreProductInStoreForm exploreForm=new exploreProductInStoreForm(user,store);
+		exploreForm.initializeForm(store);
 
 	}
 

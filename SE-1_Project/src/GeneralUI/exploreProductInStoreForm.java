@@ -1,26 +1,30 @@
 package GeneralUI;
 
+import BuyerUI.VoucherForm;
 import PaymentControl.User;
+import PaymentControl.Voucher;
+import PaymentControl.paymentControl;
 import ProductControl.ProductInventory;
 import ProductControl.Store;
 
 public class exploreProductInStoreForm extends Form{
 
 
-    public exploreProductInStoreForm(User currentUser)
+    public exploreProductInStoreForm(User currentUser,Store store)
     {
+
         super(currentUser);
+        Store store1=new Store();
+        store1=store;
 
     }
     public void initializeForm(Store store)
     {
         ProductInventory ProductInven=new ProductInventory();
 
-        ProductInventory[]storeProducts=ProductInven. getStoresProducts(store);
+        ProductInventory[]storeProducts=ProductInven.getStoresProducts(store);
         viewProducts(storeProducts);
-
     }
-
     public void viewProducts( ProductInventory[]storeProducts)
     {
         ProductInventory ProductInven=new ProductInventory();
@@ -29,12 +33,10 @@ public class exploreProductInStoreForm extends Form{
         {
             System.out.println(storeProducts);
         }
-
     }
     public void submitProduct(ProductInventory product)
     {
         viewDetails(product);
-
     }
     public void viewDetails(ProductInventory product)
     {
@@ -44,8 +46,13 @@ public class exploreProductInStoreForm extends Form{
       System.out.println("Name:: "+name);
         System.out.println("Price:: "+price);
         System.out.println("SoldItems:: "+soldItems);
-
-
+    }
+    public void PayByVoucher(ProductInventory product)
+    {
+        paymentControl paycontrol =new paymentControl();
+        paycontrol.setProduct(product);
+        VoucherForm form=new VoucherForm(currentUser);
+        form.initializeForm();
     }
 }
 
