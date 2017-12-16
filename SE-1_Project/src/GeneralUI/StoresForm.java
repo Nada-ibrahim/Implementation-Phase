@@ -3,6 +3,7 @@ package GeneralUI;
 import PaymentControl.User;
 import PaymentControl.Visa;
 import ProductControl.Store;
+import ProductControl.productControl;
 import StoreOwnerUI.ViewStatisticsForm;
 
 import java.util.*;
@@ -24,6 +25,7 @@ public class StoresForm extends Form {
 	}
 
 	public void addOnlineStore() {
+		//AddStoreForm AddStoreForm=new AddStoreForm();
 		AddStoreForm.setOnline();
 		initializeForm();
 
@@ -31,7 +33,10 @@ public class StoresForm extends Form {
 	}
 
 	public void addProductToStore(Store store) {
-
+		productControl productcontrol =new productControl();
+		SelectProductForm SelectProductform=new SelectProductForm();
+		SelectProductform.setStore(store);
+		productcontrol.getProductsforStore(store);
 	}
 
 	public void makeForm() {

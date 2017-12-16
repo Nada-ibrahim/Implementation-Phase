@@ -13,7 +13,8 @@ public class HomeAdmin extends Form {
 	}
 
 	public void addProduct() {
-
+		AddProductForm addproductForm=new AddProductForm();
+		addproductForm.initializeForm();
 	}
 
 	public void provideVoucherCards() {
@@ -22,7 +23,8 @@ public class HomeAdmin extends Form {
 	}
 
 	public void addBrand() {
-
+		AddBrandform AddBrandform=new AddBrandform();
+		AddBrandform.initializeForm();
 	}
 
 	public void removeBrand() {

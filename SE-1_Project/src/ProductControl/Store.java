@@ -14,7 +14,10 @@ public class Store {
 	private String email;
 
 	private String type;
+
 	private Visa visaCode;
+
+	static public Store allStores[];
 
 	public Store(String name, String mail, Visa visaCode, String telephone, User owner) {
 		this.email=mail;
@@ -25,15 +28,15 @@ public class Store {
 	}
 
 	public Store[] getAllStores() {
-		return null;
+		return this.allStores;
 	}
 
-	public String getStoreOwner() {
-		return null;
+	public User getStoreOwner() {
+		return this.owner;
 	}
 
 	public String getTelephone() {
-		return null;
+		return this.telephone;
 	}
 
 
@@ -42,15 +45,24 @@ public class Store {
 	}
 
 	public String getmail() {
-		return null;
+		return this.email;
 	}
 
 	public String getType() {
-		return null;
+		return this.type;
 	}
 
 	public String getStoreName() {
 		return null;
 	}
-
+	public boolean getStoreName(String name){
+		boolean found=false;
+		for (int i=0;i<allStores.length;i++){
+			if(allStores[i].name.equals(name)){
+				found=true;
+				break;
+			}
+		}
+		return found;
+	}
 }

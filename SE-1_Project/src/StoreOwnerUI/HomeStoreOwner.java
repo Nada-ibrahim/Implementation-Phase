@@ -19,7 +19,8 @@ public class HomeStoreOwner extends Form {
 	}
 
 	public void suggestProducts() {
-
+		SuggestProductForm SuggestProductForm=new SuggestProductForm ();
+		SuggestProductForm.initializeForm();
 	}
 
 	public void marketProduct() {

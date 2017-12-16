@@ -1,8 +1,5 @@
 package ProductControl;
 
-import GeneralUI.exploreProductInStoreForm;
-import PaymentControl.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +14,8 @@ public class ProductInventory {
 
 	private Store store;
 
+	static public ProductInventory allProductInventory[];
+
 	private static List<ProductInventory> allProductsInventory = new ArrayList<>();
 
 	public ProductInventory(){
@@ -28,7 +27,8 @@ public class ProductInventory {
 	}
 
 	public void addToDatabase() {
-
+		int index= allProductInventory.length;
+		allProductInventory[index]=this;
 	}
 
 	public Product[] getProductByName(String productName) {

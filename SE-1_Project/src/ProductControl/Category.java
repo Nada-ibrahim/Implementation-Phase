@@ -1,9 +1,10 @@
 package ProductControl;
 
 public class Category {
+	static Category allCategories[];
 
-	public Category[] getCategories() {
-		return null;
+	static public Category[] getCategories() {
+		return  allCategories;
 	}
 
 	public ProductInventory[] getProductsByCategory(String category) {
