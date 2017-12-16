@@ -25,11 +25,11 @@ public class User {
 
 
 
-	public void User(String email, String password, String name, String type) {
-this.email=email;
-this.password=password;
-this.name=name;
-this.type=type;
+	public User(String email, String password, String name, String type) {
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.type = type;
 
 
 	}
@@ -59,8 +59,9 @@ this.type=type;
 
 	}
 
-	public Store getOwnerStores() {
-		return stores;
+	public Store[] getOwnerStores() {
+		Store[] allStores = new Store[stores.size()];
+		return stores.toArray(allStores);
 	}
 
 	public String getType() {

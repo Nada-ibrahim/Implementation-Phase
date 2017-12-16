@@ -1,17 +1,17 @@
 package PaymentControl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Voucher {
-
+	static Map<String, Voucher> allVouchers  = new HashMap<>();
 	private String code;
-
 	private int value;
-	public Voucher(String vouchCode)
-	{
+	public Voucher(String vouchCode, int value) {
 		code=vouchCode;
-	}
-
-	public void Voucher(int price, int numb) {
-
+		this.value = value;
 	}
 
 	public int getVoucherValue() {
@@ -19,8 +19,14 @@ public class Voucher {
 		return value;
 	}
 
-	public void addToDatabase() {
-
+	public boolean addToDatabase() {
+		Voucher addedVoucher = allVouchers.get(code);
+		if(addedVoucher == null){
+			allVouchers.put(code, this);
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

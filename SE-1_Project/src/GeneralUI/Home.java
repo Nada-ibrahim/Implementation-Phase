@@ -33,28 +33,26 @@ public class Home extends Form {
 	}
 
 	public void register() {
-		Scanner input=new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		int n;
 		System.out.println("Entre your mail :");
-		Email=input.nextLine();
+		Email = input.nextLine();
 		System.out.println("Entre your name :");
-		name=input.nextLine();
+		name = input.nextLine();
 		System.out.println("Entre your password :");
-		password=input.nextLine();
-		String types[];
-		types= {"Buyer","Store owner","premium user"};
+		password = input.nextLine();
+		String types[] = {"Buyer", "Store owner", "premium user"};
 		System.out.println("if you are a Buyer press 1 if you are a store owner press 2 if you are premium user press 3");
-		n=input.nextInt();
-		while (true)
-		{
-			if (n==1||n==2||n==3)
-			break;
+		n = input.nextInt();
+		while (true) {
+			if (n == 1 || n == 2 || n == 3)
+				break;
 			else
 				System.out.println("Entre valid number");
 		}
-		type=types[n-1];
-User u=new User(Email,password,name,type);
-u.addToDatabase();
+		type = types[n - 1];
+		User u = new User(Email, password, name, type);
+		u.addToDatabase();
 
 	}
 	public void initialize(){

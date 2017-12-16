@@ -8,6 +8,7 @@ import javax.jws.soap.SOAPBinding;
 
 public class HomeAdmin extends Form {
 	HomeAdmin(User current){
+		super(current);
 		currentUser = current;
 	}
 
@@ -16,7 +17,8 @@ public class HomeAdmin extends Form {
 	}
 
 	public void provideVoucherCards() {
-
+		AddVoucherForm vForm = new AddVoucherForm(currentUser);
+		vForm.initializeForm();
 	}
 
 	public void addBrand() {
