@@ -55,10 +55,15 @@ public class Home extends Form {
 		u.addToDatabase();
 
 	}
-	public void initialize(){
-
+	public void initializeForm(){
+		makeForm();
     }
-    public void searchStoreProducts(User user,Store store){
+
+	private void makeForm() {
+		System.out.println("Welcome to \"Try it\" Website");
+	}
+
+	public void searchStoreProducts(User user,Store store){
 		exploreProductInStoreForm exploreForm=new exploreProductInStoreForm(user,store);
 		exploreForm.initializeForm(store);
 
