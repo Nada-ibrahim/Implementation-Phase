@@ -2,10 +2,11 @@ package StoreOwnerUI;
 
 import GeneralUI.Form;
 import ProductControl.Brand;
+import ProductControl.Category;
 
 public class SuggestProductForm extends Form {
 
-	public void makeForm(Brand[] brands) {
+	public void makeForm(Brand[] brands, Category[] categories) {
 
 	}
 
