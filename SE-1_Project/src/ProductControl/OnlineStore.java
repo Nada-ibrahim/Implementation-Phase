@@ -9,6 +9,7 @@ public class OnlineStore extends Store {
 
 	public void OnlineStore(String name, String mail, String type, Visa visa, User owner) {
 
+
 	}
 
 	public void addToDatabase() {

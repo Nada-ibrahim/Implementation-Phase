@@ -1,6 +1,7 @@
 package GeneralUI;
 
 import PaymentControl.User;
+import PaymentControl.Visa;
 import ProductControl.Store;
 import StoreOwnerUI.ViewStatisticsForm;
 
@@ -8,6 +9,11 @@ import java.util.*;
 
 public class StoresForm extends Form {
 	private Store[] allStores;
+	private String name;
+	private String mail;
+	private Visa visaCode;
+	private String telephone;
+	private User owner;
 	public StoresForm(User current){
 		super(current);
 		allStores = current.getOwnerStores();
@@ -18,6 +24,9 @@ public class StoresForm extends Form {
 	}
 
 	public void addOnlineStore() {
+		AddStoreForm.setOnline();
+		initializeForm();
+
 
 	}
 

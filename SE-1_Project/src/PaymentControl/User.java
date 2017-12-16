@@ -2,6 +2,10 @@ package PaymentControl;
 
 import ProductControl.Store;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class User {
 
 	private String email;
@@ -14,15 +18,36 @@ public class User {
 
 	private Visa visaNo;
 
-	private Store[] stores;
+	public static List<Store> stores=new ArrayList<>();
 
 	private Visa visa;
+	private List<User> user=new ArrayList<>();
+
+
 
 	public void User(String email, String password, String name, String type) {
+this.email=email;
+this.password=password;
+this.name=name;
+this.type=type;
+
 
 	}
 
-	public void addToDatabase() {
+	public static void  addToDatabase() {
+		for (int i=0;i<user.size();i++)
+		{
+
+			if (email==user.get(i).email)
+			{
+
+				System.out.println("these mail exists");
+			}
+			else
+			{
+				addToDatabase();
+			}
+		}
 
 	}
 
@@ -34,7 +59,7 @@ public class User {
 
 	}
 
-	public Store[] getOwnerStores() {
+	public Store getOwnerStores() {
 		return stores;
 	}
 

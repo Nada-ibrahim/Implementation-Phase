@@ -1,6 +1,7 @@
 package ProductControl;
 
 import PaymentControl.User;
+import PaymentControl.Visa;
 
 public class Store {
 
@@ -13,6 +14,15 @@ public class Store {
 	private String email;
 
 	private String type;
+	private Visa visaCode;
+
+	public Store(String name, String mail, Visa visaCode, String telephone, User owner) {
+		this.email=mail;
+		this.name=name;
+		this.owner=owner;
+		this.telephone=telephone;
+		this.visaCode=visaCode;
+	}
 
 	public Store[] getAllStores() {
 		return null;

@@ -3,6 +3,7 @@ package GeneralUI;
 import PaymentControl.User;
 import java.util.Collection;
 
+
 abstract public class Form {
 
 	protected User currentUser;
@@ -21,6 +22,7 @@ abstract public class Form {
 	}
 
 	public void initializeForm(){
+
 
     }
 
