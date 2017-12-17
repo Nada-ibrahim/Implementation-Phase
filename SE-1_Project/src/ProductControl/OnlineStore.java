@@ -17,9 +17,17 @@ public class OnlineStore extends Store {
 
 	}
 
-	public void addToDatabase() {
+	public boolean addToDatabase(String name) {
+		boolean found=false;
 		int index=Store.allStores.length;
-		Store.allStores[index]=this;
+		for(int i=0;i<Store.allStores.length;i++){
+			if(Store.allStores[i].getStoreName().equals(name)){
+				found=true;
+			}
+		}
+		if(found==false){
+		Store.allStores[index]=this;}
+		return found;
 	}
 
 }

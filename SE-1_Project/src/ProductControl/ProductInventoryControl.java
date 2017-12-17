@@ -5,13 +5,12 @@ import GeneralUI.Form;
 public class ProductInventoryControl {
 
 	public void addProductInventory(Product product, Store store, int price) {
-		boolean foundProduct=product.getProductName(product.getProductName());
 		boolean foundStore=store.getStoreName(store.getStoreName());
+		ProductInventory ProductInventory =new ProductInventory(product.getProductName(),store.getStoreName(),price);
+		boolean foundProduct=ProductInventory.addToDatabase();
 		Form form = null;
 		if(foundProduct&&foundStore){
-			ProductInventory ProductInventory =new ProductInventory(product.getProductName(),store.getStoreName(),price);
 			form.viewSuccessMessage();
-			ProductInventory.addToDatabase();
 		}
 		else if(!foundProduct&&!foundStore){
 			form.viewErrorMessage();

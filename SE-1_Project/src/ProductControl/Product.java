@@ -13,9 +13,18 @@ public class Product {
 
 	static public Product allProducts [];
 
-	public void addToDatabase() {
+	public boolean addToDatabase() {
+		boolean found=false;
 		int index=allProducts.length;
-		allProducts[index]=this;
+		for(int i=0;i<allProducts.length;i++){
+			if(allProducts[i].getProductName().equals(name)){
+				found=true;
+				break;
+			}
+		}
+		if(found==true)
+		{allProducts[index]=this;}
+		return found;
 	}
 
 	Product(String name, Category category, Brand brand, String type, boolean suggested) {

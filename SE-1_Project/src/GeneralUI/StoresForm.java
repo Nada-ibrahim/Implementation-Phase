@@ -21,13 +21,13 @@ public class StoresForm extends Form {
 	}
 
 	public void addOnsiteStore() {
-		AddStoreForm AddStoreForm=new AddStoreForm();
+		AddStoreForm AddStoreForm=new AddStoreForm(currentUser);
 		AddStoreForm.setOnline(false);
 		AddStoreForm.initializeForm();
 	}
 
 	public void addOnlineStore() {
-		AddStoreForm AddStoreForm=new AddStoreForm();
+		AddStoreForm AddStoreForm=new AddStoreForm(currentUser);
 		AddStoreForm.setOnline(true);
 		AddStoreForm.initializeForm();
 
@@ -36,9 +36,9 @@ public class StoresForm extends Form {
 
 	public void addProductToStore(Store store) {
 		productControl productcontrol =new productControl();
-		SelectProductForm SelectProductform=new SelectProductForm();
+		SelectProductForm SelectProductform=new SelectProductForm(currentUser);
 		SelectProductform.setStore(store);
-		productcontrol.getProductsforStore(store);
+
 	}
 
 	public void makeForm() {
@@ -82,7 +82,7 @@ public class StoresForm extends Form {
 	}
 
 	public void initializeForm(){
-		makeForm();
+
 	}
 
 	public void viewStatisticsFor(Store store){

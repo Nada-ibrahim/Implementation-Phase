@@ -1,7 +1,6 @@
 package StoreOwnerUI;
 
 import GeneralUI.Form;
-import GeneralUI.StoresForm;
 import PaymentControl.User;
 
 public class HomeStoreOwner extends Form {
@@ -19,7 +18,7 @@ public class HomeStoreOwner extends Form {
 	}
 
 	public void suggestProducts() {
-		SuggestProductForm SuggestProductForm=new SuggestProductForm ();
+		SuggestProductForm SuggestProductForm=new SuggestProductForm (currentUser);
 		SuggestProductForm.initializeForm();
 	}
 

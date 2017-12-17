@@ -1,8 +1,6 @@
 package PaymentControl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Voucher {
@@ -15,8 +13,12 @@ public class Voucher {
 	}
 
 	public int getVoucherValue() {
-
-		return value;
+       Voucher checkExistance=allVouchers.get(code);
+       if(checkExistance==null)
+	   {
+	   	return -1;
+	   }
+		return checkExistance.value;
 	}
 
 	public boolean addToDatabase() {

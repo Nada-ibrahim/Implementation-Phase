@@ -4,6 +4,7 @@ import PaymentControl.User;
 import ProductControl.Product;
 import ProductControl.ProductInventoryControl;
 import ProductControl.Store;
+import ProductControl.productControl;
 
 import java.util.Scanner;
 
@@ -31,6 +32,12 @@ public class SelectProductForm extends Form {
 	public void submitProduct(Product product, int price) {
 		ProductInventoryControl ProductInventorycontrol=new ProductInventoryControl();
 		ProductInventorycontrol.addProductInventory(product,selectedStore,price);
+	}
+	public void initializeForm(){
+
+		productControl productControl=new productControl();
+		productControl.getProductsforStore(selectedStore);
+
 	}
 
 	public void setStore(Store store) {

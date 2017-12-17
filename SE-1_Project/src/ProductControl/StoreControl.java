@@ -1,9 +1,7 @@
 package ProductControl;
 
-import GeneralUI.AddStoreForm;
 import GeneralUI.Form;
 import PaymentControl.User;
-import PaymentControl.Visa;
 import PaymentControl.paymentControl;
 import StoreOwnerUI.ViewStatisticsForm;
 import javafx.util.Pair;
@@ -14,17 +12,11 @@ import java.util.List;
 public class StoreControl {
 
 	public void addOnsiteStore(String name, String address, String telephone, String mail, User owner) {
-		boolean found=false;
-		for(int i=0;i<Store.allStores.length;i++){
-			if(Store.allStores[i].getStoreName().equals(name)){
-				found=true;
-			}
-		}
+		OnsiteStore onsiteStore=new OnsiteStore(name,mail,address,telephone,owner);
+		boolean found=onsiteStore.addToDatabase(name);
 		Form form=null;
 		if(found==false){
-			OnsiteStore onsiteStore=new OnsiteStore(name,mail,address,telephone,owner);
 			form.viewSuccessMessage();
-
 		}
 		else if(found==true){
 			form.viewErrorMessage();
@@ -43,16 +35,10 @@ public class StoreControl {
 			System.out.println("The VisaCode is not valid");
 		}
 		else if(valid==true){
-			boolean found=false;
-			for(int i=0;i<Store.allStores.length;i++){
-				if(Store.allStores[i].getStoreName().equals(name)){
-					found=true;
-				}
-			}
+			OnlineStore online=new OnlineStore(name,mail,visaCode,telephone,owner);
+			boolean found=online.addToDatabase( name);
 			if(found==false){
-				OnlineStore online=new OnlineStore(name,mail,visaCode,telephone,owner);
 				form.viewSuccessMessage();
-
 			}
 			else if(found==true){
 				form.viewErrorMessage();

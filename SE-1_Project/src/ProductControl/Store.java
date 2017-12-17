@@ -1,7 +1,6 @@
 package ProductControl;
 
 import PaymentControl.User;
-import PaymentControl.Visa;
 
 public class Store {
 
@@ -25,6 +24,10 @@ public class Store {
 		this.owner=owner;
 		this.telephone=telephone;
 		this.visaCode=visaCode;
+	}
+	public Store(String name)
+	{
+		this.name=name;
 	}
 
 	public Store[] getAllStores() {

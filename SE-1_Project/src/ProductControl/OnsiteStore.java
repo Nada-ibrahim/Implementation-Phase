@@ -14,9 +14,17 @@ public class OnsiteStore extends Store {
 
 	}
 
-	public void addToDatabase() {
+	public boolean addToDatabase(String name) {
         int index=Store.allStores.length;
-        Store.allStores[index]=this;
+        boolean found=false;
+        for(int i=0;i<Store.allStores.length;i++){
+            if(Store.allStores[i].getStoreName().equals(name)){
+                found=true;
+            }
+        }
+        if(found==false){
+        Store.allStores[index]=this;}
+        return found;
 	}
 
 }

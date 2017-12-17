@@ -26,9 +26,12 @@ public class ProductInventory {
 
 	}
 
-	public void addToDatabase() {
+	public boolean addToDatabase() {
 		int index= allProductInventory.length;
-		allProductInventory[index]=this;
+		boolean foundProduct=product.getProductName(product.getProductName());
+          if(foundProduct==true){
+		allProductInventory[index]=this;}
+		return foundProduct;
 	}
 
 	public Product[] getProductByName(String productName) {

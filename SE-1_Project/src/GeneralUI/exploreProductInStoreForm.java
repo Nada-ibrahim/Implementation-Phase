@@ -2,7 +2,6 @@ package GeneralUI;
 
 import BuyerUI.VoucherForm;
 import PaymentControl.User;
-import PaymentControl.Voucher;
 import PaymentControl.paymentControl;
 import ProductControl.ProductInventory;
 import ProductControl.Store;
@@ -14,8 +13,7 @@ public class exploreProductInStoreForm extends Form{
     {
 
         super(currentUser);
-        Store store1=new Store();
-        store1=store;
+
 
     }
     public void initializeForm(Store store)

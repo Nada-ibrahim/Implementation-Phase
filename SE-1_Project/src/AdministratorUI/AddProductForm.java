@@ -20,7 +20,7 @@ public class AddProductForm extends Form {
 
 	public void submitProduct(String name, Category category, Brand brand, String type) {
 		productControl productcontrol=new 	productControl();
-		productcontrol.addProduct(name,category,brand,type,true);
+		productcontrol.addProduct(name,category,brand,type,false);
 	}
 	public void initializeForm(){
 		productControl productcontrol=new 	productControl();

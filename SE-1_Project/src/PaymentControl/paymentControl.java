@@ -2,7 +2,7 @@ package PaymentControl;
 
 import BuyerUI.VoucherForm;
 import ProductControl.ProductInventory;
-import GeneralUI.Form;
+
 import java.util.Collection;
 
 public class paymentControl {
@@ -20,11 +20,11 @@ public class paymentControl {
 		VoucherForm vouchForm=new VoucherForm(currentUser);
 		if(currentUser.getType()!="Buyer"){System.out.println("you can't buy by voucher"); }
 		else {
-			Voucher vouch = new Voucher(voucherCode);
+			Voucher vouch = new Voucher(voucherCode,-1);
 			int voucherValue = vouch.getVoucherValue();
 			int price = boughtProduct.getPrice();
 			boolean verified = verifyVoucherValue(voucherValue, price);
-			if (verified) {
+			if (verified && voucherValue!=-1) {
 				boughtProduct.incrementSoldItems();
 				vouchForm.viewSuccessMessage();
 
