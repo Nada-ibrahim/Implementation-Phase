@@ -2,6 +2,7 @@ package ProductControl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductInventory {
 
@@ -14,21 +15,24 @@ public class ProductInventory {
 
 	private Store store;
 
-	static public ProductInventory allProductInventory[];
-
 	private static List<ProductInventory> allProductsInventory = new ArrayList<>();
 
-	public ProductInventory(){
-		return;
-
+	ProductInventory(Product product, Store store, int price) {
+		this.product = product;
+		this.store = store;
+		this.price = price;
+		soldItems = 0;
 	}
-	ProductInventory(String ProductName, String StoreName, int Price) {
 
-	}
-
-	public void addToDatabase() {
-		int index= allProductInventory.length;
-		allProductInventory[index]=this;
+	public boolean addToDatabase() {
+		for (ProductInventory anAllProductsInventory : allProductsInventory) {
+			if (Objects.equals(getProduct(), anAllProductsInventory.getProduct())
+					&& store == anAllProductsInventory.getStore()) {
+				return false;
+			}
+		}
+		allProductsInventory.add(this);
+		return true;
 	}
 
 	public Product[] getProductByName(String productName) {
@@ -45,11 +49,11 @@ public class ProductInventory {
 	}
 
 	public Store getStore() {
-		return null;
+		return store;
 	}
 
 	public int getSoldItems() {
-		return 0;
+		return soldItems;
 	}
 
 	public void setPromoted() {
@@ -68,7 +72,7 @@ public class ProductInventory {
 		return storeProducts.toArray(productsArr);
 	}
 
-	public String getName() {
-		return product.getName();
+	public Product getProduct() {
+		return product;
 	}
 }

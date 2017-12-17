@@ -1,44 +1,32 @@
 package GeneralUI;
 
 import PaymentControl.User;
-import PaymentControl.Visa;
 import ProductControl.Store;
-import ProductControl.productControl;
 import StoreOwnerUI.ViewStatisticsForm;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class StoresForm extends Form {
 	private Store[] allStores;
-	private String name;
-	private String mail;
-	private Visa visaCode;
-	private String telephone;
-	private User owner;
 	public StoresForm(User current){
 		super(current);
 		allStores = current.getOwnerStores();
 	}
 
 	public void addOnsiteStore() {
-		AddStoreForm AddStoreForm=new AddStoreForm();
-		AddStoreForm.setOnline(false);
+		AddStoreForm AddStoreForm=new AddStoreForm(currentUser, false);
 		AddStoreForm.initializeForm();
 	}
 
 	public void addOnlineStore() {
-		AddStoreForm AddStoreForm=new AddStoreForm();
-		AddStoreForm.setOnline(true);
+		AddStoreForm AddStoreForm=new AddStoreForm(currentUser, true);
 		AddStoreForm.initializeForm();
-
-
 	}
 
 	public void addProductToStore(Store store) {
-		productControl productcontrol =new productControl();
-		SelectProductForm SelectProductform=new SelectProductForm();
-		SelectProductform.setStore(store);
-		productcontrol.getProductsforStore(store);
+		SelectProductForm selectProductform=new SelectProductForm(currentUser, store);
+		selectProductform.initializeForm();
+
 	}
 
 	public void makeForm() {

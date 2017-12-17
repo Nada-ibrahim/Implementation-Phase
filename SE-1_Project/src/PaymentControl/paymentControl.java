@@ -1,15 +1,14 @@
 package PaymentControl;
 
-import BuyerUI.VoucherForm;
-import ProductControl.ProductInventory;
 import GeneralUI.Form;
+import ProductControl.ProductInventory;
+
 import java.util.Collection;
 
 public class paymentControl {
 
 	private ProductInventory boughtProduct;
 	private User currentUser;
-
 	private Collection<ProductInventory> productInventory;
 
 	public void setProduct(ProductInventory product) {
@@ -17,20 +16,13 @@ public class paymentControl {
 	}
 
 	public void buyByVoucher(String voucherCode) {
-		VoucherForm vouchForm=new VoucherForm(currentUser);
-		if(currentUser.getType()!="Buyer"){System.out.println("you can't buy by voucher"); }
-		else {
-			Voucher vouch = new Voucher(voucherCode);
-			int voucherValue = vouch.getVoucherValue();
-			int price = boughtProduct.getPrice();
-			boolean verified = verifyVoucherValue(voucherValue, price);
-			if (verified) {
-				boughtProduct.incrementSoldItems();
-				vouchForm.viewSuccessMessage();
-
-			} else {
-				vouchForm.viewErrorMessage();
-			}
+		int voucherValue = Voucher.getVoucherValue(voucherCode);
+		int price = boughtProduct.getPrice();
+		boolean verified = verifyVoucherValue(voucherValue, price);
+		if (verified && voucherValue != -1) {
+			Form.viewSuccessMessage();
+		} else {
+			Form.viewErrorMessage();
 		}
 	}
 
@@ -39,9 +31,7 @@ public class paymentControl {
 	}
 
 	public boolean verifyVoucherValue(int value, int price) {
-          if(value>price)
-		  {return false;}
-		  else{return true;}
+		return value > price;
 	}
 
 	public void payOnDelivery(String address) {

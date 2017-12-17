@@ -1,10 +1,10 @@
 package BuyerUI;
 
-import PaymentControl.paymentControl;
-import java.util.Scanner;
 import GeneralUI.Form;
 import PaymentControl.User;
-import PaymentControl.Voucher;
+import PaymentControl.paymentControl;
+
+import java.util.Scanner;
 
 public class VoucherForm extends Form {
 
@@ -14,8 +14,7 @@ public class VoucherForm extends Form {
 
 	}
 
-	public void initializeForm()
-	{
+	public void initializeForm() {
 		makeForm();
 	}
 
@@ -23,13 +22,12 @@ public class VoucherForm extends Form {
 		System.out.println("Enter code of voucher:: ");
 		Scanner user_input = new Scanner( System.in );
 		String code=user_input.next();
+		submitVoucher(code);
 	}
 
 	public void submitVoucher(String code) {
 		paymentControl pay=new paymentControl();
 		pay.buyByVoucher(code);
-
-
 	}
 
 }

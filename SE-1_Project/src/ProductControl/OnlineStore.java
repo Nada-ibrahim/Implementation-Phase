@@ -11,15 +11,19 @@ public class OnlineStore extends Store {
 		super(name, mail, visaCode, telephone, owner);
 	}
 
-
-	public void OnlineStore(String name, String mail, String visa,String telephone, User owner) {
-
-
+	@Override
+	public String getType() {
+		return "Online";
 	}
 
-	public void addToDatabase() {
-		int index=Store.allStores.length;
-		Store.allStores[index]=this;
+	public boolean addToDatabase() {
+		for (int i = 0; i < Store.allStores.size(); i++) {
+			if (Store.allStores.get(i).getStoreName().equals(name)) {
+				return false;
+			}
+		}
+		allStores.add(this);
+		return true;
 	}
 
 }

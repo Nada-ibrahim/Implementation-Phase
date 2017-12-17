@@ -1,9 +1,9 @@
 package ProductControl;
 
 public class Category {
-	static Category allCategories[];
+	private static String[] allCategories = {"a", "b", "c"};
 
-	static public Category[] getCategories() {
+	static public String[] getCategories() {
 		return  allCategories;
 	}
 

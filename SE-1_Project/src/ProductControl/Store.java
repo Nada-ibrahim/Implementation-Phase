@@ -1,11 +1,13 @@
 package ProductControl;
 
 import PaymentControl.User;
-import PaymentControl.Visa;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Store {
 
-	private String name;
+	protected String name;
 
 	private User owner;
 
@@ -13,11 +15,9 @@ public class Store {
 
 	private String email;
 
-	private String type;
-
 	private String visaCode;
 
-	static public Store allStores[];
+	static public List<Store> allStores = new ArrayList<>();
 
 	public Store(String name, String mail, String visaCode, String telephone, User owner) {
 		this.email=mail;
@@ -26,9 +26,13 @@ public class Store {
 		this.telephone=telephone;
 		this.visaCode=visaCode;
 	}
+	public Store(String name)
+	{
+		this.name=name;
+	}
 
 	public Store[] getAllStores() {
-		return this.allStores;
+		return null;
 	}
 
 	public User getStoreOwner() {
@@ -48,21 +52,27 @@ public class Store {
 		return this.email;
 	}
 
-	public String getType() {
-		return this.type;
-	}
+	public String getType() { return "";}
 
 	public String getStoreName() {
 		return this.name;
 	}
-	public boolean getStoreName(String name){
-		boolean found=false;
-		for (int i=0;i<allStores.length;i++){
-			if(allStores[i].name.equals(name)){
-				found=true;
-				break;
+//	public boolean getStoreName(String name){
+//		boolean found=false;
+//		for (int i=0;i<allStores.length;i++){
+//			if(allStores[i].name.equals(name)){
+//				found=true;
+//				break;
+//			}
+//		}
+//		return found;
+//	}
+	public static Store getStore(String name){
+		for (Store allStore : allStores) {
+			if (allStore.name.equals(name)) {
+				return allStore;
 			}
 		}
-		return found;
+		return null;
 	}
 }

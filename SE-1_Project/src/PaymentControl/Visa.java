@@ -8,7 +8,7 @@ public class Visa {
 
 	private String expiryDate;
 
-	public void Visa(String visaNo, String serial, String expirationDate) {
+	public Visa(String visaNo, String serial, String expirationDate) {
 
 	}
 

@@ -67,4 +67,11 @@ public class User {
 		}
 		return null;
 	}
+
+	public String getName() {
+		return name;
+	}
+	public void addStoreToOwner(Store store){
+		stores.add(store);
+	}
 }

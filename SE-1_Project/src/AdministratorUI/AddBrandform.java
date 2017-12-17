@@ -1,7 +1,6 @@
 package AdministratorUI;
 
 import BuyerUI.exploreProductForm;
-import GeneralUI.Form;
 import ProductControl.BrandControl;
 
 import java.util.Scanner;
@@ -20,4 +19,8 @@ public class AddBrandform extends exploreProductForm {
 		submitBrand(name);
 	}
 
+	@Override
+	public void initializeForm() {
+		makeForm();
+	}
 }

@@ -1,12 +1,10 @@
 package PaymentControl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Voucher {
-	static Map<String, Voucher> allVouchers  = new HashMap<>();
+	private static Map<String, Voucher> allVouchers  = new HashMap<>();
 	private String code;
 	private int value;
 	public Voucher(String vouchCode, int value) {
@@ -14,9 +12,12 @@ public class Voucher {
 		this.value = value;
 	}
 
-	public int getVoucherValue() {
-
-		return value;
+	public static int getVoucherValue(String code) {
+		Voucher checkExistance = allVouchers.get(code);
+		if (checkExistance == null) {
+			return -1;
+		}
+		return checkExistance.value;
 	}
 
 	public boolean addToDatabase() {

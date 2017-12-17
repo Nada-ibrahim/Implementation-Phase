@@ -1,24 +1,38 @@
 package ProductControl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class Product {
 
 	private String name;
 
-	private Category category;
-	boolean suggested;
+	private String category;
+	private boolean suggested;
 
 	private Brand brand;
 
 	private String type;
 
-	static public Product allProducts [];
+	private static List<Product> allProducts = new ArrayList<>();
+	private static List<Product> suggestedProducts = new ArrayList<>();
 
-	public void addToDatabase() {
-		int index=allProducts.length;
-		allProducts[index]=this;
+	public boolean addToDatabase() {
+		for(int i = 0; i < allProducts.size(); ++i){
+			if(Objects.equals(name, allProducts.get(i).getProductName())){
+				return false;
+			}
+		}
+		if(suggested) {
+			suggestedProducts.add(this);
+		}else{
+			allProducts.add(this);
+		}
+		return true;
 	}
 
-	Product(String name, Category category, Brand brand, String type, boolean suggested) {
+	Product(String name, String category, Brand brand, String type, boolean suggested) {
 		this.name=name;
 		this.brand=brand;
 		this.type=type;
@@ -42,36 +56,40 @@ public class Product {
 		return null;
 	}
 
-	public Product[] getProductsByType(String type) {
-		Product product[]=null;
-		int counter=0;
-		for(int i=0;i<allProducts.length;i++){
-			if(allProducts[i].type==type){
-				product[counter]=allProducts[i];
-				counter++;
+	public static Product[] getProductsByType(String type) {
+		List<Product> selectedProducts = new ArrayList<>();
+		for (Product allProduct : allProducts) {
+			if (Objects.equals(allProduct.type, type)) {
+				selectedProducts.add(allProduct);
 			}
 		}
-		return product;
+		Product[] products = new Product[selectedProducts.size()];
+		return selectedProducts.toArray(products);
 	}
-	public boolean getProductName(String name) {
-		boolean found=false;
-		for(int i=0;i<allProducts.length;i++){
-			if(allProducts[i].name.equals(name)){
-				found=true;
-				break;
-			}
-		}
-		return found;
-	}
+//	public boolean getProductName(String name) {
+//		boolean found=false;
+//		for(int i=0;i<allProducts.length;i++){
+//			if(allProducts[i].name.equals(name)){
+//				found=true;
+//				break;
+//			}
+//		}
+//		return found;
+//	}
 	public String getProductName() {
 		return this.name;
 	}
 
-	static public Product[] getProduct() {
-		return allProducts;}
 
 	public String getName() {
 		return this.name;
 	}
 
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public String getCategory() {
+		return category;
+	}
 }

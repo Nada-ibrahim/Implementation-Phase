@@ -10,13 +10,19 @@ public class OnsiteStore extends Store {
         super(name, mail, address, telephone, owner);
     }
 
-    public void OnsiteStore(String name, String address, double workhours, String mail, String type) {
+    @Override
+    public String getType() {
+        return "Onsite";
+    }
 
-	}
-
-	public void addToDatabase() {
-        int index=Store.allStores.length;
-        Store.allStores[index]=this;
+    public boolean addToDatabase() {
+        for(int i=0;i<Store.allStores.size();i++){
+            if(Store.allStores.get(i).getStoreName().equals(name)){
+                return false;
+            }
+        }
+        allStores.add(this);
+        return true;
 	}
 
 }

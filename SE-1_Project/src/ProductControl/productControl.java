@@ -2,45 +2,32 @@ package ProductControl;
 
 import AdministratorUI.AddProductForm;
 import GeneralUI.Form;
-import GeneralUI.SelectProductForm;
+import PaymentControl.User;
 
 public class productControl {
-	public void getAllCateoriesBrands(	AddProductForm addproductform){
-		Category categories[]=Category.getCategories();
+
+	User user;
+	public void getAllCateoriesBrands(AddProductForm addproductform){
+		String[] categories=Category.getCategories();
 		Brand brands[]=Brand.getBrands(false);
 		addproductform.makeForm(categories,brands);
 	}
 
 
-	public void addProduct(String name, Category category, Brand brand, String type, boolean suggested) {
-		Product allProduct[]=Product.getProduct();
-		boolean found=false;
-		for(int i=0;i<allProduct.length;i++){
-			if(allProduct[i].getProductName().equals(name)){
-				found=true;
-				break;
-			}
+	public boolean addProduct(String name, String category, Brand brand, String type, boolean suggested) {
+		Product product = new Product(name, category, brand, type, suggested);
+		boolean found = product.addToDatabase();
+		if (!found) {
+			Form.viewSuccessMessage();
+		} else {
+			Form.viewErrorMessage();
 		}
-		Form form = null;
-		if(found==false){
-			Product product=new Product(name,category,brand,type,suggested);
-			product.addToDatabase();
-			form.viewSuccessMessage();
-		}
-		else if(found==true){
-			form.viewErrorMessage();
-			System.out.println("The name of Product already exist");
-		}
-
+		return found;
 	}
 
-	public void getProductsforStore(Store store) {
+	public Product[] getProductsforStore(Store store) {
 		String typeOfStore=store.getType();
-		Product product= null;
-		Product productsOfStore[]=product.getProductsByType(typeOfStore);
-		SelectProductForm selectproductform=new SelectProductForm();
-		selectproductform.makeForm(productsOfStore);
-
+		return Product.getProductsByType(typeOfStore);
 	}
 
 	public void addSuggestions(Product accepted, Product rejected) {

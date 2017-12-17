@@ -10,6 +10,7 @@ abstract public class Form {
 	protected User currentUser;
 
 	private Collection<User> user;
+	public Form(){}
 	public Form(User current){
 	    currentUser = current;
     }
@@ -37,7 +38,6 @@ abstract public class Form {
 	}
 
 	public void initializeForm(){
-
 
     }
 

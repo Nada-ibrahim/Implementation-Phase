@@ -1,33 +1,33 @@
 package AdministratorUI;
 
+import GeneralUI.Form;
 import PaymentControl.User;
 import ProductControl.Brand;
-import ProductControl.Category;
-import GeneralUI.Form;
 import ProductControl.productControl;
 
 import java.util.Scanner;
 
 public class AddProductForm extends Form {
-	String name;
-	Category category;
-	Brand brand;
-	String type;
 
 	public AddProductForm(User current) {
 		super(current);
 	}
 
-	public void submitProduct(String name, Category category, Brand brand, String type) {
+	public void submitProduct(String name, String category, Brand brand, String type) {
 		productControl productcontrol=new 	productControl();
-		productcontrol.addProduct(name,category,brand,type,true);
+		productcontrol.addProduct(name,category,brand,type,false);
 	}
 	public void initializeForm(){
-		productControl productcontrol=new 	productControl();
+		productControl productcontrol=new productControl();
 		productcontrol.getAllCateoriesBrands(this);
 	}
 
-	public void makeForm(Category[] categories, Brand brands[]) {
+	public void makeForm(String[] categories, Brand[] brands) {
+		String name;
+		String category;
+		Brand brand;
+		String type;
+
 		System.out.println("Please write the name of the product");
 		Scanner cin=new Scanner(System.in);
 		name=cin.next();
@@ -49,7 +49,7 @@ public class AddProductForm extends Form {
 
 		System.out.println("Please write the type of the product");
 		Scanner cin4=new Scanner(System.in);
-		String type=cin4.nextLine();
+		type=cin4.nextLine();
 		submitProduct(name,category,brand,type);
 	}
 

@@ -1,11 +1,9 @@
 package GeneralUI;
 
 import PaymentControl.User;
-import PaymentControl.UserControl;
 import ProductControl.Store;
+import StoreOwnerUI.SuggestProductForm;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Home extends Form {
@@ -13,7 +11,11 @@ public class Home extends Form {
 		super(currentUser);
 	}
 
-	public void signin() {
+    public Home() {
+
+    }
+
+    public void signin() {
 		SignInForm signForm = new SignInForm(null);
 		signForm.initializeForm();
 	}
@@ -58,8 +60,12 @@ public class Home extends Form {
 
 	public void searchStoreProducts(User user,Store store){
 		exploreProductInStoreForm exploreForm=new exploreProductInStoreForm(user,store);
-		exploreForm.initializeForm(store);
+		exploreForm.initializeForm();
 
+	}
+	public void suggestProducts() {
+		SuggestProductForm SuggestProductForm=new SuggestProductForm (currentUser);
+		SuggestProductForm.initializeForm();
 	}
 
 }
