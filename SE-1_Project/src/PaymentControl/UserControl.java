@@ -1,12 +1,10 @@
 package PaymentControl;
 
+import AdministratorUI.HomeAdmin;
 import BuyerUI.HomeBuyer;
 import GeneralUI.Form;
-import ProductControl.Store;
 import StoreOwnerUI.HomePremium;
 import StoreOwnerUI.HomeStoreOwner;
-
-import java.security.acl.Owner;
 
 public class UserControl {
 private User user;
@@ -52,6 +50,10 @@ private User user;
 			case "Premium Store Owner":
 				HomePremium pso = new HomePremium(loggedUser);
 				pso.initializeForm();
+				break;
+			case "Admin":
+				HomeAdmin ha = new HomeAdmin(loggedUser);
+				ha.initializeForm();
 				break;
 		}
 	}

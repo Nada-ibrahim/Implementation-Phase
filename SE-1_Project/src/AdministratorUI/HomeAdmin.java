@@ -7,7 +7,7 @@ import PaymentControl.User;
 import javax.jws.soap.SOAPBinding;
 
 public class HomeAdmin extends Form {
-	HomeAdmin(User current){
+	public HomeAdmin(User current){
 		super(current);
 		currentUser = current;
 	}
