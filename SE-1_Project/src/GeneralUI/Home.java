@@ -9,50 +9,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Home extends Form {
-	private String Email;
-	private String name;
-	private String password;
-	private String type;
-
-	public Home(User currentUser)
-	{
+	public Home(User currentUser) {
 		super(currentUser);
-
 	}
 
 	public void signin() {
-		Scanner input=new Scanner(System.in);
-		System.out.println("Entre your mail :");
-		name=input.nextLine();
-		System.out.println("Entre your password :");
-		password=input.nextLine();
-
-
-
-
+		SignInForm signForm = new SignInForm(null);
+		signForm.initializeForm();
 	}
 
 	public void register() {
-		Scanner input = new Scanner(System.in);
-		int n;
-		System.out.println("Entre your mail :");
-		Email = input.nextLine();
-		System.out.println("Entre your name :");
-		name = input.nextLine();
-		System.out.println("Entre your password :");
-		password = input.nextLine();
-		String types[] = {"Buyer", "Store owner", "premium user"};
-		System.out.println("if you are a Buyer press 1 if you are a store owner press 2 if you are premium user press 3");
-		n = input.nextInt();
-		while (true) {
-			if (n == 1 || n == 2 || n == 3)
-				break;
-			else
-				System.out.println("Entre valid number");
-		}
-		type = types[n - 1];
-		User u = new User(Email, password, name, type);
-		u.addToDatabase();
+		RegisterForm rForm = new RegisterForm(null);
+		rForm.initializeForm();
 
 	}
 	public void initializeForm(){
@@ -60,7 +28,32 @@ public class Home extends Form {
     }
 
 	private void makeForm() {
-		System.out.println("Welcome to \"Try it\" Website");
+		System.out.println("Welcome to \"Try it\"");
+		A: while (true) {
+			System.out.println("please, Choose an option:-");
+			System.out.println("1- Register");
+			System.out.println("2- log in");
+			System.out.println("3- Exit");
+			Scanner scan = new Scanner(System.in);
+			int n = scan.nextInt();
+			switch (n){
+				case 1:
+					register();
+					break ;
+				case 2:
+					signin();
+					break ;
+				case 3:
+					break A;
+
+			}
+			try {
+				Runtime.getRuntime().exec("cls");
+			}
+			catch (final Exception e) { }
+		}
+
+
 	}
 
 	public void searchStoreProducts(User user,Store store){

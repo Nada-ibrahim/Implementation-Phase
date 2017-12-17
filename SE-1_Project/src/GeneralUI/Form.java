@@ -16,7 +16,7 @@ abstract public class Form {
 
     public static void viewSuccessMessage() {
 		System.out.println("Operation is successful");
-		System.out.println("Press any button to return to HomePage");
+		System.out.println("Press any button to continue");
 		Scanner scan = new Scanner(System.in);
 		scan.nextLine();
 		try {

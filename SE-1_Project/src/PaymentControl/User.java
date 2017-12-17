@@ -7,6 +7,7 @@ import java.util.List;
 
 
 public class User {
+	private static List<User> allUsers=new ArrayList<>();
 
 	private String email;
 
@@ -18,11 +19,7 @@ public class User {
 
 	private Visa visaNo;
 
-	public static List<Store> stores=new ArrayList<>();
-
-	private Visa visa;
-	private List<User> user=new ArrayList<>();
-
+	private static List<Store> stores=new ArrayList<>();
 
 
 	public User(String email, String password, String name, String type) {
@@ -34,20 +31,14 @@ public class User {
 
 	}
 
-	public static void  addToDatabase() {
-		for (int i=0;i<user.size();i++)
-		{
-
-			if (email==user.get(i).email)
-			{
-
-				System.out.println("these mail exists");
-			}
-			else
-			{
-				addToDatabase();
+	public boolean  addToDatabase() {
+		for (User allUser : allUsers) {
+			if (email.equals(allUser.email)) {
+				return false;
 			}
 		}
+		allUsers.add(this);
+		return true;
 
 	}
 
@@ -66,5 +57,14 @@ public class User {
 
 	public String getType() {
 		return type;
+	}
+
+	public static User getUser(String email, String password){
+		for (User allUser : allUsers) {
+			if (email.equals(allUser.email) && password.equals(allUser.password)) {
+				return allUser;
+			}
+		}
+		return null;
 	}
 }

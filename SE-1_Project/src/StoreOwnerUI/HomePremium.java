@@ -4,7 +4,7 @@ import GeneralUI.StoresForm;
 import PaymentControl.User;
 
 public class HomePremium extends HomeStoreOwner {
-    HomePremium(User current){
+    public HomePremium(User current){
         super(current);
     }
 

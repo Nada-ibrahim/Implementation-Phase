@@ -4,7 +4,7 @@ import GeneralUI.Form;
 import PaymentControl.User;
 
 public class HomeBuyer extends Form {
-	HomeBuyer(User currentUser){
+	public HomeBuyer(User currentUser){
 		super(currentUser);
 	}
 	@Override
