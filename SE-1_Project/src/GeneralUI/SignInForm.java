@@ -26,7 +26,7 @@ public class SignInForm extends Form {
         }
     }
 
-    private boolean submitUser(String name, String password) {
+    public boolean submitUser(String name, String password) {
         UserControl uControl = new UserControl();
         return uControl.logUserIn(name, password);
     }
