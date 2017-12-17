@@ -19,14 +19,14 @@ public class SelectProductForm extends Form {
 
 	public void makeForm(Product[] products) {
 		for (int i = 0; i < products.length; i++) {
-			System.out.println("number: " + (i + 1) + " " + products[i]);
+			System.out.println("number: " + (i + 1) + " " + products[i].getName());
 		}
 		int numberOfProduct;
 		while (true) {
 			System.out.println("Please Enter number of product you want to add to your store :D");
 			Scanner cin = new Scanner(System.in);
 			numberOfProduct = cin.nextInt();
-			if (numberOfProduct < products.length) {
+			if (numberOfProduct <= products.length) {
 				break;
 			}
 		}

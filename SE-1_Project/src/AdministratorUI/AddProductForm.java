@@ -13,9 +13,9 @@ public class AddProductForm extends Form {
 		super(current);
 	}
 
-	public void submitProduct(String name, String category, Brand brand, String type) {
+	public boolean submitProduct(String name, String category, Brand brand, String type) {
 		productControl productcontrol=new 	productControl();
-		productcontrol.addProduct(name,category,brand,type,false);
+		return productcontrol.addProduct(name,category,brand,type,false);
 	}
 	public void initializeForm(){
 		productControl productcontrol=new productControl();
@@ -41,7 +41,7 @@ public class AddProductForm extends Form {
 
 		System.out.println("Please Choose the number Brand of the product");
 		for(int i=0;i<brands.length;i++){
-			System.out.println(i+1+" "+brands[i]);
+			System.out.println(i+1+" "+brands[i].getBrandName());
 		}
 		Scanner cin3=new Scanner(System.in);
 		int indexBrand=cin3.nextInt();

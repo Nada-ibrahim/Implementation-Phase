@@ -22,22 +22,32 @@ public class SuggestProductForm extends Form {
 		System.out.println("Please write the name of the suggested product");
 		Scanner cin=new Scanner(System.in);
 		String name=cin.next();
-		System.out.println("Please Choose the number category of the suggested product");
-		for(int i = 0; i< categories.length; i++){
-			System.out.println(i+1+" "+ categories[i]);
+		String category;
+		while(true) {
+			System.out.println("Please Choose the number category of the suggested product");
+			for (int i = 0; i < categories.length; i++) {
+				System.out.println(i + 1 + " " + categories[i]);
+			}
+			Scanner cin2 = new Scanner(System.in);
+			int indexCategory = cin2.nextInt();
+			if(indexCategory <= categories.length) {
+				category = categories[indexCategory - 1];
+				break;
+			}
 		}
-		Scanner cin2=new Scanner(System.in);
-		int indexCategory=cin2.nextInt();
-		String category= categories[indexCategory-1];
-
-		System.out.println("Please Choose the number Brand of the suggested product");
-		for(int i=0;i<brands.length;i++){
-			System.out.println(i+1+" "+brands[i]);
+		Brand brand;
+		while (true) {
+			System.out.println("Please Choose the number Brand of the suggested product");
+			for (int i = 0; i < brands.length; i++) {
+				System.out.println(i + 1 + " " + brands[i]);
+			}
+			Scanner cin3 = new Scanner(System.in);
+			int indexBrand = cin3.nextInt();
+			if(indexBrand <= brands.length) {
+				brand = brands[indexBrand - 1];
+				break;
+			}
 		}
-		Scanner cin3=new Scanner(System.in);
-		int indexBrand=cin3.nextInt();
-		Brand brand=brands[indexBrand-1];
-
 		System.out.println("Please write the type of the suggested product");
 		Scanner cin5=new Scanner(System.in);
 		String type=cin5.nextLine();

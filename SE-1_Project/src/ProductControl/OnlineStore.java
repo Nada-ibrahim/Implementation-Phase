@@ -13,7 +13,7 @@ public class OnlineStore extends Store {
 
 	@Override
 	public String getType() {
-		return "Online";
+		return "online";
 	}
 
 	public boolean addToDatabase() {

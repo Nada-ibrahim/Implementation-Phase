@@ -7,7 +7,7 @@ public class BrandControl {
 	public void addBrand(String name, boolean suggested) {
 		Brand brand=new Brand( name,suggested);
 		boolean found=brand.addToDatabase();
-		if(!found){
+		if(found){
 			Form.viewSuccessMessage();
 		}
 		else{

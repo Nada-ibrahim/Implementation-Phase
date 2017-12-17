@@ -2,11 +2,8 @@ package ProductControl;
 
 import AdministratorUI.AddProductForm;
 import GeneralUI.Form;
-import PaymentControl.User;
 
 public class productControl {
-
-	User user;
 	public void getAllCateoriesBrands(AddProductForm addproductform){
 		String[] categories=Category.getCategories();
 		Brand brands[]=Brand.getBrands(false);
@@ -17,7 +14,7 @@ public class productControl {
 	public boolean addProduct(String name, String category, Brand brand, String type, boolean suggested) {
 		Product product = new Product(name, category, brand, type, suggested);
 		boolean found = product.addToDatabase();
-		if (!found) {
+		if (found) {
 			Form.viewSuccessMessage();
 		} else {
 			Form.viewErrorMessage();

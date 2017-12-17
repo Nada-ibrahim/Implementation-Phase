@@ -60,6 +60,7 @@ public class HomeAdmin extends Home {
             } else if (numberOfOperation == 3) {
                 addBrand();
             } else if (numberOfOperation == 4) {
+				System.out.println("please,Enter name of the store you want to explore: ");
                 String storeName = input.next();
                 Store store = Store.getStore(storeName);
                 searchStoreProducts(currentUser, store);

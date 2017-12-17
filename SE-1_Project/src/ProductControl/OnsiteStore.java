@@ -12,7 +12,7 @@ public class OnsiteStore extends Store {
 
     @Override
     public String getType() {
-        return "Onsite";
+        return "onsite";
     }
 
     public boolean addToDatabase() {

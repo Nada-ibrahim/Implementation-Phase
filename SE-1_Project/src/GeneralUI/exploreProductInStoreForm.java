@@ -23,18 +23,22 @@ public class exploreProductInStoreForm extends Form{
     }
 
     public void viewProducts( ProductInventory[] storeProducts) {
-        System.out.println("Products in the store are:- ");
-        for (int i = 0; i < storeProducts.length; i++) {
-            System.out.println("(" + (i+1) + ")" + storeProducts[i].getProduct().getName());
-        }
-        while (true) {
-            System.out.println("Enter the number of product you want to view its details: ");
-            int n;
-            Scanner scan = new Scanner(System.in);
-            n = scan.nextInt();
-            if (1 < n && n <= storeProducts.length) {
-                submitProduct(storeProducts[n]);
-                break;
+        if(storeProducts.length == 0){
+            System.out.println("No products in this Store");
+        }else {
+            System.out.println("Products in the store are:- ");
+            for (int i = 0; i < storeProducts.length; i++) {
+                System.out.println("(" + (i + 1) + ")" + storeProducts[i].getProduct().getName());
+            }
+            while (true) {
+                System.out.println("Enter the number of product you want to view its details: ");
+                int n;
+                Scanner scan = new Scanner(System.in);
+                n = scan.nextInt();
+                if (1 < n && n <= storeProducts.length) {
+                    submitProduct(storeProducts[n]);
+                    break;
+                }
             }
         }
     }

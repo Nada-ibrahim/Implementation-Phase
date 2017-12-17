@@ -15,7 +15,7 @@ public class StoreControl {
 		OnsiteStore onsiteStore=new OnsiteStore(name,mail,address,telephone,owner);
 
 		boolean found=onsiteStore.addToDatabase();
-		if(!found){
+		if(found){
 		    owner.addStoreToOwner(onsiteStore);
 			Form.viewSuccessMessage();
 		} else{
@@ -33,7 +33,7 @@ public class StoreControl {
 		} else {
 			OnlineStore online = new OnlineStore(name, mail, visaCode, telephone, owner);
 			boolean found = online.addToDatabase();
-			if (!found) {
+			if (found) {
                 owner.addStoreToOwner(online);
 				Form.viewSuccessMessage();
 				return true;
