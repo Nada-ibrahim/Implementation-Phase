@@ -21,13 +21,15 @@ public class StoresForm extends Form {
 	}
 
 	public void addOnsiteStore() {
-
+		AddStoreForm AddStoreForm=new AddStoreForm();
+		AddStoreForm.setOnline(false);
+		AddStoreForm.initializeForm();
 	}
 
 	public void addOnlineStore() {
-		//AddStoreForm AddStoreForm=new AddStoreForm();
-		AddStoreForm.setOnline();
-		initializeForm();
+		AddStoreForm AddStoreForm=new AddStoreForm();
+		AddStoreForm.setOnline(true);
+		AddStoreForm.initializeForm();
 
 
 	}

@@ -52,7 +52,7 @@ public class paymentControl {
 
 	}
 
-	public boolean verifyCardNo(Visa visa) {
+	public boolean verifyCardNo(String visa) {
 		return true;
 	}
 

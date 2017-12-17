@@ -15,11 +15,11 @@ public class Store {
 
 	private String type;
 
-	private Visa visaCode;
+	private String visaCode;
 
 	static public Store allStores[];
 
-	public Store(String name, String mail, Visa visaCode, String telephone, User owner) {
+	public Store(String name, String mail, String visaCode, String telephone, User owner) {
 		this.email=mail;
 		this.name=name;
 		this.owner=owner;
@@ -53,7 +53,7 @@ public class Store {
 	}
 
 	public String getStoreName() {
-		return null;
+		return this.name;
 	}
 	public boolean getStoreName(String name){
 		boolean found=false;
